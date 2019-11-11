@@ -10,7 +10,6 @@ module.exports = class Product {
     }
 
     save(id){
-        console.log(this);
         if(!id){
             db.query('INSERT INTO products SET?', this, (err, result, field)=>{
                 if(err) throw err;
