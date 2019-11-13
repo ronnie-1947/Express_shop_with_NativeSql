@@ -18,13 +18,13 @@ module.exports = class Product {
         else{
             db.query(`
             UPDATE products SET 
-            title = '${this.title}',
-            price = ${this.price},
-            imageUrl = '${this.imageUrl}',
-            description = '${this.description}',
+            title = ?,
+            price = ?,
+            imageUrl = ?,
+            description = ?,
             updated_at = NOW()
-            WHERE id = ${id}
-            `, (err, result)=>{
+            WHERE id = ?
+            `, [this.title, this.price, this.imageUrl, this.description, id], (err, result)=>{
                 if(err)throw err;
             })
         }
